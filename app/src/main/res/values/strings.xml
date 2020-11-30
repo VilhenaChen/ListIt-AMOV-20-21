@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ListIt</string>
+    <string name="CriaLista">Criar Lista</string>
+    <string name="Listas">Listas</string>
+    <string name="VerProdutos">Ver Produtos</string>
+    <string name="VerUnidades">Ver Unidades</string>
+
 </resources>
