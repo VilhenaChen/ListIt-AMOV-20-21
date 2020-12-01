@@ -36,10 +36,8 @@
                 android:background="@drawable/transparent_bg_bordered_button"
                 android:text="@string/CriaLista"
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-thin"
-                android:padding="8dp"
-                />
+                android:fontFamily="sans-serif"
+                android:onClick="onBtnCriarLista"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -48,9 +46,8 @@
                 android:background="@drawable/transparent_bg_bordered_button"
                 android:text="@string/Listas"
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-thin"
-                android:padding="8dp"/>
+                android:fontFamily="sans-serif"
+                android:onClick="onBtnListas"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -59,9 +56,8 @@
                 android:background="@drawable/transparent_bg_bordered_button"
                 android:text="@string/VerProdutos"
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-thin"
-                android:padding="8dp"/>
+                android:fontFamily="sans-serif"
+                android:onClick="onBtnVerProdutos"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -69,9 +65,8 @@
                 android:background="@drawable/transparent_bg_bordered_button"
                 android:text="@string/VerUnidades"
                 android:textColor="#000000"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-thin"
-                android:padding="8dp"/>
+                android:fontFamily="sans-serif"
+                android:onClick="onBtnVerUnidades"/>
         </LinearLayout>
     </LinearLayout>
 
