@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.activity_ver_unidades.*
 import kotlinx.android.synthetic.main.entrada_unidade.view.*
+import pt.vilhena.listit.MainActivity
 import pt.vilhena.listit.R
 import pt.vilhena.listit.logica.Dados
 import pt.vilhena.listit.logica.Unidade
@@ -66,11 +67,28 @@ class VerUnidades : Activity() {
 
     fun onClickBtnAdd(view: View) {
         val intent = Intent(this, NovaUnidade::class.java)
+        intent.putExtra("dados", dados)
         startActivity(intent)
     }
 
     fun onClickBtnMinus(view: View) {
         //Ir para Remove Unidade
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("dados", dados)
+        startActivity(intent)
+        finish()
     }
 }
 

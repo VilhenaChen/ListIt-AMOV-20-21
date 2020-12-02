@@ -1,6 +1,8 @@
 package pt.vilhena.listit.logica
 
-class Unidade {
+import java.io.Serializable
+
+class Unidade : Serializable{
     var designacao : String? = null
         get() = field
         set(value) {

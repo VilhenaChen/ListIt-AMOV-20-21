@@ -3,9 +3,8 @@ package pt.vilhena.listit.logica
 import java.io.Serializable
 
 class Dados : Serializable{
+
     private var listaUnidades = ArrayList<Unidade>()
-
-
 
     fun addUnidade(designacao: String, abreviatura: String){
         listaUnidades.add(Unidade(designacao,abreviatura))

@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#FFFFFF">
+        android:background="#FFFFFF"
+        android:layout_margin="8dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -37,7 +38,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:text="@string/DesignacaoUnidades"
-                    android:textSize="20dp"
+                    android:textSize="24dp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black"
                     android:gravity="center"
@@ -46,8 +47,8 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="@string/AbreviacaoUnidades"
-                    android:textSize="20dp"
+                    android:text="@string/AbreviaturaUnidades"
+                    android:textSize="24dp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black"
                     android:gravity="center"

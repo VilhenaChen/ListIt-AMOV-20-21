@@ -4,7 +4,9 @@
     <string name="Listas">Listas</string>
     <string name="VerProdutos">Ver Produtos</string>
     <string name="VerUnidades">Ver Unidades</string>
-    <string name="AbreviacaoUnidades">Abreviação</string>
+    <string name="AbreviaturaUnidades">Abreviatura</string>
     <string name="DesignacaoUnidades">Designação</string>
+    <string name="NovaUnidadeN">Nova</string>
+    <string name="NovaUnidadeU">Unidade</string>
 
 </resources>

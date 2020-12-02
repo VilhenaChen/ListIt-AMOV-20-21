@@ -3,19 +3,38 @@ package pt.vilhena.listit
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import pt.vilhena.listit.atividades.VerUnidades
 import pt.vilhena.listit.logica.Dados
+import pt.vilhena.listit.logica.Unidade
 
+const val TAG = "AQUI"
 class MainActivity : Activity() {
-    val dados = Dados()
+
+    var dados = Dados()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if(intent.hasExtra("dados"))
+        {
+            dados=intent.getSerializableExtra("dados") as Dados
+        }
+        else
+        {
+            dados.addUnidade("Unidade", "uni")
+            dados.addUnidade("Kilogramas", "Kg")
+        }
 
+        Log.i(TAG, "onCreate: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume: ")
     }
 
     fun onBtnCriarLista(view: View) {
@@ -29,8 +48,16 @@ class MainActivity : Activity() {
     }
     fun onBtnVerUnidades(view: View) {
         val intent = Intent(this, VerUnidades::class.java)
+        intent.putExtra("dados", dados)
         startActivity(intent)
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+    }
 
 }
