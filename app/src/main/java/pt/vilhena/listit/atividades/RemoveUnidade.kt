@@ -3,37 +3,61 @@ package pt.vilhena.listit.atividades
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Color.parseColor
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.BaseAdapter
-import kotlinx.android.synthetic.main.activity_ver_unidades.*
+import android.widget.TextView
+import androidx.core.view.get
+import kotlinx.android.synthetic.main.activity_remove_unidade.*
 import kotlinx.android.synthetic.main.entrada_unidade.view.*
+import kotlinx.android.synthetic.main.entrada_unidade_para_remover.*
+import kotlinx.android.synthetic.main.entrada_unidade_para_remover.view.*
+import org.w3c.dom.Text
 import pt.vilhena.listit.MainActivity
 import pt.vilhena.listit.R
 import pt.vilhena.listit.logica.Dados
 import pt.vilhena.listit.logica.Unidade
 
+var ABS ="OI"
 
-class VerUnidades : Activity() {
-
+class RemoveUnidade : Activity() {
     lateinit var listaUnidades : ArrayList<Unidade>
+    var unidadesARemover = ArrayList<String>()
     lateinit var dados : Dados
-    var adapter: UnidadesAdapter? = null
+    var adapter: RemoveUnidadesAdapter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ver_unidades)
+        setContentView(R.layout.activity_remove_unidade)
 
         dados = intent.getSerializableExtra("dados") as Dados
         listaUnidades = dados.getListaUnidades()
 
-        adapter = UnidadesAdapter(this, listaUnidades)
+        adapter = RemoveUnidadesAdapter(this, listaUnidades)
 
-        grelhaUnidades.adapter = adapter
+        grelhaRemoveUnidades.adapter = adapter
+
+        grelhaRemoveUnidades.setOnItemClickListener { parent, view, position, id ->
+
+            /*if(this.designacaoRemoveUnidades.background.toString()!="#FFFFFF")
+            {
+
+            }*/
+            /*unidadesARemover.add(listaUnidades[position].designacao.toString())*/
+            Log.i(ABS,"OLA")
+            grelhaRemoveUnidades.get(position).designacaoRemoveUnidades.setBackgroundColor(Color.parseColor("#FFFFFF"))
+
+        }
     }
 
-    class UnidadesAdapter : BaseAdapter {
+
+    class RemoveUnidadesAdapter : BaseAdapter {
         var listaUnidades = ArrayList<Unidade>()
         var context: Context? = null
         constructor(context: Context, listaUnidades: ArrayList<Unidade>) : super(){
@@ -57,34 +81,18 @@ class VerUnidades : Activity() {
             val unidade = this.listaUnidades[position]
 
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            var unidadeView = inflator.inflate(R.layout.entrada_unidade, null)
-            unidadeView.designacaoUnidades.text = unidade.designacao
-            unidadeView.abreviaturaUnidades.text = unidade.abreviatura
+            var unidadeView = inflator.inflate(R.layout.entrada_unidade_para_remover, null)
+            unidadeView.designacaoRemoveUnidades.text = unidade.designacao
 
             return unidadeView
         }
     }
 
-    fun onClickBtnAdd(view: View) {
-        val intent = Intent(this, NovaUnidade::class.java)
-        intent.putExtra("dados", dados)
-        startActivity(intent)
-        finish()
-    }
-
     fun onClickBtnMinus(view: View) {
-        val intent = Intent(this, RemoveUnidade::class.java)
+        val intent = Intent(this, VerUnidades::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)
         finish()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onBackPressed() {
@@ -95,5 +103,3 @@ class VerUnidades : Activity() {
         finish()
     }
 }
-
-

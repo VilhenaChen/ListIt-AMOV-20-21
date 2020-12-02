@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".atividades.VerUnidades">
+    tools:context=".atividades.VerUnidades"
+    android:background="#FFFFFF">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

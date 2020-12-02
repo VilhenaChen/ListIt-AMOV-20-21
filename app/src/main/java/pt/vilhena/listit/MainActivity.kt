@@ -10,7 +10,6 @@ import pt.vilhena.listit.atividades.VerUnidades
 import pt.vilhena.listit.logica.Dados
 import pt.vilhena.listit.logica.Unidade
 
-const val TAG = "AQUI"
 class MainActivity : Activity() {
 
     var dados = Dados()
@@ -28,13 +27,10 @@ class MainActivity : Activity() {
             dados.addUnidade("Unidade", "uni")
             dados.addUnidade("Kilogramas", "Kg")
         }
-
-        Log.i(TAG, "onCreate: ")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(TAG, "onResume: ")
     }
 
     fun onBtnCriarLista(view: View) {
@@ -50,6 +46,7 @@ class MainActivity : Activity() {
         val intent = Intent(this, VerUnidades::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)
+        finish()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

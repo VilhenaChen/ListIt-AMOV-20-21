@@ -51,6 +51,7 @@ class NovaUnidade : Activity() {
         val intent = Intent(this, VerUnidades::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)
+        finish()
     }
 
 

@@ -6,7 +6,8 @@
     <string name="VerUnidades">Ver Unidades</string>
     <string name="AbreviaturaUnidades">Abreviatura</string>
     <string name="DesignacaoUnidades">Designação</string>
-    <string name="NovaUnidadeN">Nova</string>
-    <string name="NovaUnidadeU">Unidade</string>
+    <string name="Nova">Nova</string>
+    <string name="Unidade">Unidade</string>
+    <string name="Remove">Remove</string>
 
 </resources>
