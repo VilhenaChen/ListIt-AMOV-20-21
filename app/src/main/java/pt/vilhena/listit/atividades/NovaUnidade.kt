@@ -39,6 +39,7 @@ class NovaUnidade : Activity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
+        outState.putSerializable("DADOS", dados)
         super.onSaveInstanceState(outState)
     }
 

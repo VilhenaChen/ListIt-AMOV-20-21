@@ -46,7 +46,8 @@ class RemoveUnidade : Activity() {
         grelhaRemoveUnidades.adapter = adapter
 
         grelhaRemoveUnidades.setOnItemClickListener { parent, view, position, id ->
-            view.setBackgroundColor(rgb(255, 0, 0))
+
+            view.setBackgroundColor(rgb(233, 211, 255))
             unidadesARemover.add(listaUnidades[position].designacao.toString())
             Log.i(ABS,"AQUIadasd")
         }
