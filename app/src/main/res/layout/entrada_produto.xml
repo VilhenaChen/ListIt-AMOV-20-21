@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/designacaoProdutos"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text=""
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        android:layout_marginStart="40dp"/>
+    <TextView
+        android:id="@+id/quantidadeProdutos"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|right"
+        android:text=""
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        android:layout_marginEnd="4dp"/>
+    <TextView
+        android:id="@+id/unidadeProdutos"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|left"
+        android:text=""
+        android:fontFamily="sans-serif"
+        android:textSize="16sp"
+        android:layout_marginStart="4dp"/>
+</LinearLayout>

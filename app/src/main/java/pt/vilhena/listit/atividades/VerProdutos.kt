@@ -3,50 +3,52 @@ package pt.vilhena.listit.atividades
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import kotlinx.android.synthetic.main.activity_ver_produtos.*
 import kotlinx.android.synthetic.main.activity_ver_unidades.*
+import kotlinx.android.synthetic.main.entrada_produto.view.*
 import kotlinx.android.synthetic.main.entrada_unidade.view.*
 import pt.vilhena.listit.MainActivity
 import pt.vilhena.listit.R
 import pt.vilhena.listit.logica.Dados
+import pt.vilhena.listit.logica.Produto
 import pt.vilhena.listit.logica.Unidade
 
-
-class VerUnidades : Activity() {
-
-    lateinit var listaUnidades : ArrayList<Unidade>
+class VerProdutos : Activity() {
+    lateinit var listaProdutos : ArrayList<Produto>
     lateinit var dados : Dados
-    var adapter: UnidadesAdapter? = null
+    var adapter: VerProdutos.ProdutosAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ver_unidades)
+        setContentView(R.layout.activity_ver_produtos)
 
         dados = intent.getSerializableExtra("dados") as Dados
-        listaUnidades = dados.getListaUnidades()
+        listaProdutos = dados.getListaProdutos()
 
-        adapter = UnidadesAdapter(this, listaUnidades)
+        adapter = ProdutosAdapter(this,listaProdutos)
 
-        grelhaUnidades.adapter = adapter
+        grelhaProdutos.adapter = adapter
     }
 
-    class UnidadesAdapter : BaseAdapter {
-        var listaUnidades = ArrayList<Unidade>()
+    class ProdutosAdapter : BaseAdapter {
+        var listaProdutos = ArrayList<Produto>()
         var context: Context? = null
-        constructor(context: Context, listaUnidades: ArrayList<Unidade>) : super(){
+        constructor(context: Context, listaProdutos: ArrayList<Produto>) : super(){
             this.context=context
-            this.listaUnidades=listaUnidades
+            this.listaProdutos=listaProdutos
         }
 
         override fun getCount(): Int {
-            return listaUnidades.size
+            return listaProdutos.size
         }
 
         override fun getItem(position: Int): Any {
-            return listaUnidades[position]
+            return listaProdutos[position]
         }
 
         override fun getItemId(position: Int): Long {
@@ -54,39 +56,30 @@ class VerUnidades : Activity() {
         }
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            val unidade = this.listaUnidades[position]
+            val produto = this.listaProdutos[position]
 
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            var unidadeView = inflator.inflate(R.layout.entrada_unidade, null)
-            unidadeView.designacaoUnidades.text = unidade.designacao
-            unidadeView.abreviaturaUnidades.text = unidade.abreviatura
+            var produtoView = inflator.inflate(R.layout.entrada_produto, null)
+            produtoView.designacaoProdutos.text = produto.designacao
+            produtoView.quantidadeProdutos.text = produto.quantidade.toString()
+            produtoView.unidadeProdutos.text = produto.unidade
 
-            return unidadeView
+            return produtoView
         }
     }
 
-    fun onClickBtnAdd(view: View) {
-        val intent = Intent(this, NovaUnidade::class.java)
+    fun OnClickBtnSearch(view: View) {
+        val intent = Intent(this, PesquisaProdutos::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)
         finish()
     }
 
-    fun onClickBtnMinus(view: View) {
-        val intent = Intent(this, RemoveUnidade::class.java)
+    fun onClickBtnOrder(view: View) {
+        val intent = Intent(this, OrdenaProdutos::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)
         finish()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putSerializable("DADOS", dados)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        dados=savedInstanceState.getSerializable("DADOS") as Dados
-        super.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onBackPressed() {
@@ -96,6 +89,6 @@ class VerUnidades : Activity() {
         startActivity(intent)
         finish()
     }
+
+
 }
-
-

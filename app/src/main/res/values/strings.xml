@@ -9,5 +9,11 @@
     <string name="Nova">Nova</string>
     <string name="Unidade">Unidade</string>
     <string name="Remove">Remove</string>
+    <string name="Pesquisa">Pesquisa</string>
+    <string name="Produto">Produto</string>
+    <string name="Categoria">Categoria</string>
+    <string name="Marca">Marca</string>
+    <string name="Pesquisados">Pesquisados</string>
+    <string name="Ordena">Ordena</string>
 
 </resources>

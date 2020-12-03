@@ -3,24 +3,15 @@ package pt.vilhena.listit.atividades
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.Color.parseColor
 import android.graphics.Color.rgb
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.BaseAdapter
-import android.widget.TextView
-import androidx.core.view.get
 import kotlinx.android.synthetic.main.activity_remove_unidade.*
-import kotlinx.android.synthetic.main.entrada_unidade.view.*
-import kotlinx.android.synthetic.main.entrada_unidade_para_remover.*
 import kotlinx.android.synthetic.main.entrada_unidade_para_remover.view.*
-import org.w3c.dom.Text
 import pt.vilhena.listit.MainActivity
 import pt.vilhena.listit.R
 import pt.vilhena.listit.logica.Dados
@@ -97,9 +88,19 @@ class RemoveUnidade : Activity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, VerUnidades::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)
         finish()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putSerializable("DADOS", dados)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        dados=savedInstanceState.getSerializable("DADOS") as Dados
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }

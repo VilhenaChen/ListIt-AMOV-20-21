@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
+import pt.vilhena.listit.atividades.VerProdutos
 import pt.vilhena.listit.atividades.VerUnidades
 import pt.vilhena.listit.logica.Dados
 import pt.vilhena.listit.logica.Unidade
@@ -24,8 +25,16 @@ class MainActivity : Activity() {
         }
         else
         {
-            dados.addUnidade("Unidade", "uni")
-            dados.addUnidade("Kilogramas", "Kg")
+            if(savedInstanceState != null)
+            {
+                dados=savedInstanceState.getSerializable("DADOS") as Dados
+            }
+            else{
+                dados.addUnidade("Unidade", "uni")
+                dados.addUnidade("Kilogramas", "Kg")
+                dados.addProduto("Pão","Branca",10,"uni","","apenas se não estiver rijo")
+                dados.addProduto("Arroz","Cigala",3,"Kg","Cereiais","Apenas do Carolino")
+            }
         }
     }
 
@@ -40,7 +49,10 @@ class MainActivity : Activity() {
         //Ir para Historico Listas
     }
     fun onBtnVerProdutos(view: View) {
-        //Ir para Ver Prodtos
+        val intent = Intent(this, VerProdutos::class.java)
+        intent.putExtra("dados", dados)
+        startActivity(intent)
+        finish()
     }
     fun onBtnVerUnidades(view: View) {
         val intent = Intent(this, VerUnidades::class.java)
@@ -50,10 +62,12 @@ class MainActivity : Activity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
+        outState.putSerializable("DADOS", dados)
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        dados=savedInstanceState.getSerializable("DADOS") as Dados
         super.onRestoreInstanceState(savedInstanceState)
     }
 

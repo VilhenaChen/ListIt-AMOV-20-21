@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light.NoActionBar">
-        <activity android:name=".atividades.RemoveUnidade"></activity>
+        <activity android:name=".atividades.OrdenaProdutos"></activity>
+        <activity android:name=".atividades.VerProdutosPesquisados" />
+        <activity android:name=".atividades.PesquisaProdutos" />
+        <activity android:name=".atividades.VerProdutos" />
+        <activity android:name=".atividades.RemoveUnidade" />
         <activity android:name=".atividades.NovaUnidade" />
         <activity android:name=".atividades.VerUnidades" />
         <activity android:name=".MainActivity">

@@ -29,7 +29,7 @@ class NovaUnidade : Activity() {
             return
         }
 
-        dados.addUnidade(editDesignacao.text.toString(), editAbreviatura.text.toString())
+        dados.addUnidade(editDesignacao.text.toString().capitalize(), editAbreviatura.text.toString().capitalize())
 
         val intent = Intent(this, VerUnidades::class.java)
         intent.putExtra("dados", dados)
@@ -44,6 +44,7 @@ class NovaUnidade : Activity() {
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        dados=savedInstanceState.getSerializable("DADOS") as Dados
         super.onRestoreInstanceState(savedInstanceState)
     }
 
@@ -54,6 +55,4 @@ class NovaUnidade : Activity() {
         startActivity(intent)
         finish()
     }
-
-
 }

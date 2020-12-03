@@ -66,8 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:numColumns="1"
-                    android:verticalSpacing="16dp"
-                    />
+                    android:verticalSpacing="16dp" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
