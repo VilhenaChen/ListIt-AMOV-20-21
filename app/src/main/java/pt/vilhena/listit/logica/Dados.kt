@@ -1,5 +1,7 @@
 package pt.vilhena.listit.logica
 
+import android.util.Log
+import pt.vilhena.listit.atividades.ABS
 import java.io.Serializable
 
 class Dados : Serializable{
@@ -11,7 +13,6 @@ class Dados : Serializable{
     }
 
     fun removeUnidade(designacao: String){
-
         for (i in listaUnidades.indices){
             if(listaUnidades[i].designacao == designacao)
             {

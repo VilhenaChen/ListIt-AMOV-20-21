@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Color.parseColor
+import android.graphics.Color.rgb
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -44,15 +46,9 @@ class RemoveUnidade : Activity() {
         grelhaRemoveUnidades.adapter = adapter
 
         grelhaRemoveUnidades.setOnItemClickListener { parent, view, position, id ->
-
-            /*if(this.designacaoRemoveUnidades.background.toString()!="#FFFFFF")
-            {
-
-            }*/
-            /*unidadesARemover.add(listaUnidades[position].designacao.toString())*/
-            Log.i(ABS,"OLA")
-            grelhaRemoveUnidades.get(position).designacaoRemoveUnidades.setBackgroundColor(Color.parseColor("#FFFFFF"))
-
+            view.setBackgroundColor(rgb(255, 0, 0))
+            unidadesARemover.add(listaUnidades[position].designacao.toString())
+            Log.i(ABS,"AQUIadasd")
         }
     }
 
@@ -89,6 +85,9 @@ class RemoveUnidade : Activity() {
     }
 
     fun onClickBtnMinus(view: View) {
+        for (i in unidadesARemover.indices) {
+            dados.removeUnidade(unidadesARemover[i])
+        }
         val intent = Intent(this, VerUnidades::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)
