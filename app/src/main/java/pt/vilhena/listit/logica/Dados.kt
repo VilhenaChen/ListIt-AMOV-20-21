@@ -4,11 +4,15 @@ import android.util.Log
 import pt.vilhena.listit.atividades.ABS
 import java.io.Serializable
 
+
 class Dados : Serializable{
 
     private var listaUnidades = ArrayList<Unidade>()
     private var listaProdutos = ArrayList<Produto>()
     private var listaProdutosPesquisados = ArrayList<Produto>()
+    val ORDENA_POR_DESIGNACAO = 0
+    val ORDENA_POR_QUANTIDADE = 1
+    val ORDENA_POR_PRECO = 2
 
     //Unidades
 
@@ -101,6 +105,9 @@ class Dados : Serializable{
     {
         return listaProdutosPesquisados
     }
+
+
+    //Produtos Ordenados
 
 
 }

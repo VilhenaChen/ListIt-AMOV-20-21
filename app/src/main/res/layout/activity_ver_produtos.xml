@@ -26,8 +26,8 @@
                     android:src="@drawable/ic_btn_search"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
-                    android:scaleX="2.5"
-                    android:scaleY="2.5"
+                    android:scaleX="2"
+                    android:scaleY="2"
                     android:onClick="OnClickBtnSearch"/>
             </LinearLayout>
             <LinearLayout
@@ -48,11 +48,11 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_btn_order"
+                    android:src="@drawable/ic_btn_sort"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
-                    android:scaleX="2.5"
-                    android:scaleY="2.5"
+                    android:scaleX="2"
+                    android:scaleY="2"
                     android:onClick="onClickBtnOrder"/>
             </LinearLayout>
 
@@ -60,12 +60,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1.5">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/VerProdutos"
-                android:textSize="40sp"
+                android:textSize="48sp"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
                 android:textColor="#8A2BE2"/>
@@ -73,7 +73,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8"
+            android:layout_weight="9"
             android:layout_margin="16dp">
             <GridView
                 android:id="@+id/grelhaProdutos"
