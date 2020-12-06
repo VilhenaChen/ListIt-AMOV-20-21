@@ -2,15 +2,18 @@ package pt.vilhena.listit.atividades
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_nova_unidade.*
 import kotlinx.android.synthetic.main.activity_pesquisa_produtos.*
 import pt.vilhena.listit.MainActivity
 import pt.vilhena.listit.R
 import pt.vilhena.listit.logica.Dados
+
 
 class PesquisaProdutos : Activity() {
     lateinit var dados : Dados
@@ -19,23 +22,24 @@ class PesquisaProdutos : Activity() {
         setContentView(R.layout.activity_pesquisa_produtos)
 
         dados = intent.getSerializableExtra("dados") as Dados
+
     }
 
     fun OnClickBtnSearch(view: View) {
         if(editDesignacaoAPesquisar.text.isEmpty() && editMarcaAPesquisar.text.isEmpty() && editCategoriaAPesquisar.text.isEmpty()){
-            Toast.makeText(this, "Indique um dos campos", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.FaltaCampos, Toast.LENGTH_LONG).show()
             return
         }
         if( (!editDesignacaoAPesquisar.text.isEmpty()) ){
                 if( (!editMarcaAPesquisar.text.isEmpty()) || (!editCategoriaAPesquisar.text.isEmpty()) ) {
-                    Toast.makeText(this, "Indique apenas um dos campos", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, R.string.CamposAMais, Toast.LENGTH_LONG).show()
                     return
                 }
                 else
                 {
                     if(!dados.adicionaProdutosPesquisadosPorDesignacao(editDesignacaoAPesquisar.text.toString().capitalize()))
                     {
-                        Toast.makeText(this, "Não existe nenhum produto com a designação indicada", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, R.string.NaoProdutoDesignacao, Toast.LENGTH_LONG).show()
                         return
                     }
                 }
@@ -44,7 +48,7 @@ class PesquisaProdutos : Activity() {
         {
             if((!editMarcaAPesquisar.text.isEmpty()) && (!editCategoriaAPesquisar.text.isEmpty()))
             {
-                Toast.makeText(this, "Indique apenas um dos campos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.FaltaCampos, Toast.LENGTH_LONG).show()
                 return
             }
             else
@@ -53,7 +57,7 @@ class PesquisaProdutos : Activity() {
                 {
                     if(!dados.adicionaProdutosPesquisadosPorMarca(editMarcaAPesquisar.text.toString().capitalize()))
                     {
-                        Toast.makeText(this, "Não existe nenhum produto com a marca indicada", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, R.string.NaoProdutoMarca, Toast.LENGTH_LONG).show()
                         return
                     }
                 }
@@ -61,7 +65,7 @@ class PesquisaProdutos : Activity() {
                 {
                     if(!dados.adicionaProdutosPesquisadosPorCategoria(editCategoriaAPesquisar.text.toString().capitalize()))
                     {
-                        Toast.makeText(this, "Não existe nenhum produto com a categoria indicada", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, R.string.NaoProdutoCategoria, Toast.LENGTH_LONG).show()
                         return
                     }
                 }
@@ -80,4 +84,6 @@ class PesquisaProdutos : Activity() {
         startActivity(intent)
         finish()
     }
+
+
 }

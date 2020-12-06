@@ -62,7 +62,7 @@ class NovoProduto : Activity() {
     fun onClickBtnAdd(view: View) {
         if(editDesignacaoProd.text.isEmpty())
         {
-            Toast.makeText(this, "Indique uma Designação" ,Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.AbreviaturaFalta ,Toast.LENGTH_LONG).show()
             return
         }
         else
@@ -71,7 +71,7 @@ class NovoProduto : Activity() {
         }
         if(editQuantidade.text.isEmpty())
         {
-            Toast.makeText(this, "Indique uma Quantidade" ,Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.QuantidadeFalta ,Toast.LENGTH_LONG).show()
             return
         }
         else
@@ -80,7 +80,7 @@ class NovoProduto : Activity() {
         }
         if(unidade == "")
         {
-            Toast.makeText(this, "Escolha uma Unidade" ,Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.UnidadeFalta ,Toast.LENGTH_LONG).show()
             return
         }
 

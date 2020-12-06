@@ -22,19 +22,19 @@ class PesquisaProdutosCompra : Activity() {
 
     fun OnClickBtnSearch(view: View) {
         if(this.editDesignacaoAPesquisar.text.isEmpty() && this.editMarcaAPesquisar.text.isEmpty() && this.editCategoriaAPesquisar.text.isEmpty()){
-            Toast.makeText(this, "Indique um dos campos", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.FaltaCampos, Toast.LENGTH_LONG).show()
             return
         }
         if( (!this.editDesignacaoAPesquisar.text.isEmpty()) ){
             if( (!editMarcaAPesquisar.text.isEmpty()) || (!this.editCategoriaAPesquisar.text.isEmpty()) ) {
-                Toast.makeText(this, "Indique apenas um dos campos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.CamposAMais, Toast.LENGTH_LONG).show()
                 return
             }
             else
             {
                 if(!dados.adicionaProdutosPesquisadosPorDesignacaoLista(this.editDesignacaoAPesquisar.text.toString().capitalize()))
                 {
-                    Toast.makeText(this, "Não existe nenhum produto com a designação indicada", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, R.string.NaoProdutoDesignacao, Toast.LENGTH_LONG).show()
                     return
                 }
             }
@@ -43,7 +43,7 @@ class PesquisaProdutosCompra : Activity() {
         {
             if((!editMarcaAPesquisar.text.isEmpty()) && (!editCategoriaAPesquisar.text.isEmpty()))
             {
-                Toast.makeText(this, "Indique apenas um dos campos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.CamposAMais, Toast.LENGTH_LONG).show()
                 return
             }
             else
@@ -52,7 +52,7 @@ class PesquisaProdutosCompra : Activity() {
                 {
                     if(!dados.adicionaProdutosPesquisadosPorMarcaLista(editMarcaAPesquisar.text.toString().capitalize()))
                     {
-                        Toast.makeText(this, "Não existe nenhum produto com a marca indicada", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, R.string.NaoProdutoMarca, Toast.LENGTH_LONG).show()
                         return
                     }
                 }
@@ -60,7 +60,7 @@ class PesquisaProdutosCompra : Activity() {
                 {
                     if(!dados.adicionaProdutosPesquisadosPorCategoriaLista(editCategoriaAPesquisar.text.toString().capitalize()))
                     {
-                        Toast.makeText(this, "Não existe nenhum produto com a categoria indicada", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, R.string.NaoProdutoCategoria, Toast.LENGTH_LONG).show()
                         return
                     }
                 }

@@ -23,13 +23,13 @@ class GuardarLista : Activity() {
 
     fun onClickBtnSave(view: View) {
         if(editNomeLista.text.isEmpty()){
-            Toast.makeText(this, "Indique um nome para a Lista", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.NomeListaVazio, Toast.LENGTH_LONG).show()
             return
         }
         dados.getArrayListas().last().setNome(editNomeLista.text.toString())
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("dados", dados)
-        Toast.makeText(this, "Lista ${editNomeLista.text} guardada com sucesso", Toast.LENGTH_LONG).show()
+        Toast.makeText(this,  R.string.ListaGuardada, Toast.LENGTH_LONG).show()
         startActivity(intent)
         finish()
     }

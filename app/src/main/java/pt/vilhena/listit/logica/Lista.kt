@@ -44,6 +44,21 @@ class Lista : Serializable{
         this.nome = nome
     }
 
+    fun verificaFinalizacaoCompra() : Boolean
+    {
+        var finalizada = true
+        for(i in listaProdutos.indices)
+        {
+            if(listaProdutos[i].estado != "Comprado")
+            {
+                finalizada = false
+            }
+        }
+        return finalizada
+    }
+
+
+
     //Produtos Pesquisados
 
     fun addProdutoPesquisado(produto: Produto){
@@ -57,6 +72,19 @@ class Lista : Serializable{
     fun getListaProdutosPesquisados() : ArrayList<Produto>
     {
         return listaProdutosPesquisados
+    }
+
+    fun getProdutoComListaProdutosPesquisados(posicao : Int) : Int
+    {
+        for(i in listaProdutos.indices) {
+            if(listaProdutos[i].designacao == listaProdutosPesquisados[posicao].designacao && listaProdutos[i].marca == listaProdutosPesquisados[posicao].marca
+                && listaProdutos[i].quantidade == listaProdutosPesquisados[posicao].quantidade && listaProdutos[i].unidade == listaProdutosPesquisados[posicao].unidade
+                && listaProdutos[i].categoria == listaProdutosPesquisados[posicao].categoria && listaProdutos[i].notas == listaProdutosPesquisados[posicao].notas
+                && listaProdutos[i].preco == listaProdutosPesquisados[posicao].preco) {
+                    return i
+            }
+        }
+        return 0
     }
 
     //Produtos Ordenados
@@ -97,5 +125,19 @@ class Lista : Serializable{
         {
             listaProdutosOrdenados.add(listaProdutos[i])
         }
+    }
+
+    fun getProdutoComListaProdutosOrdenados(posicao : Int) : Int
+    {
+        for(i in listaProdutos.indices) {
+            if(listaProdutos[i].designacao == listaProdutosOrdenados[posicao].designacao && listaProdutos[i].marca == listaProdutosOrdenados[posicao].marca
+                && listaProdutos[i].quantidade == listaProdutosOrdenados[posicao].quantidade && listaProdutos[i].unidade == listaProdutosOrdenados[posicao].unidade
+                && listaProdutos[i].categoria == listaProdutosOrdenados[posicao].categoria && listaProdutos[i].notas == listaProdutosOrdenados[posicao].notas
+                && listaProdutos[i].preco == listaProdutosOrdenados[posicao].preco) {
+                return i
+            }
+        }
+        return 0
+
     }
 }

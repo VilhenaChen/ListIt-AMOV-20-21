@@ -40,8 +40,9 @@ class ProdutoCompraOrdenado : Activity() {
         grelhaProdutosCompraOrdenados.adapter = adapter
 
         grelhaProdutosCompraOrdenados.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this, EspecificacaoProdutoOrdenado::class.java)
+            val intent = Intent(this, EspecificacaoProdutoCompraOrdenado::class.java)
             intent.putExtra("dados", dados)
+            intent.putExtra("posicaoLista", posicao)
             intent.putExtra("posicaoProduto", position)
             startActivity(intent)
             finish()

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_lista_compra.*
 import kotlinx.android.synthetic.main.activity_ver_produtos.*
 import kotlinx.android.synthetic.main.entrada_lista.*
@@ -43,9 +44,10 @@ class ListaCompra : Activity() {
         grelhaListaCompra.adapter = adapter
 
         grelhaListaCompra.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this, EspecificacaoProduto::class.java)
+            val intent = Intent(this, EspecificacaoProdutoCompra::class.java)
             intent.putExtra("dados", dados)
             intent.putExtra("posicaoProduto", position)
+            intent.putExtra("posicaoLista", posicao)
             startActivity(intent)
             finish()
         }
@@ -73,7 +75,6 @@ class ListaCompra : Activity() {
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val produto = this.listaProdutos[position]
-
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             var produtoView = inflator.inflate(R.layout.entrada_produto_compra, null)
             produtoView.designacaoProdutos.text = produto.designacao
@@ -96,7 +97,7 @@ class ListaCompra : Activity() {
     fun OnClickBtnSearch(view: View) {
         val intent = Intent(this, PesquisaProdutosCompra::class.java)
         intent.putExtra("dados", dados)
-        intent.putExtra("posicaoProduto", posicao)
+        intent.putExtra("posicaoLista", posicao)
         startActivity(intent)
         finish()
     }
@@ -104,13 +105,23 @@ class ListaCompra : Activity() {
     fun onClickBtnOrder(view: View) {
         val intent = Intent(this, OrdenaProdutosCompra::class.java)
         intent.putExtra("dados", dados)
-        intent.putExtra("posicaoProduto", posicao)
+        intent.putExtra("posicaoLista", posicao)
         startActivity(intent)
         finish()
     }
 
     fun onBtnEnd(view: View) {
-
+        if(!dados.getArrayListas()[posicao].verificaFinalizacaoCompra())
+        {
+            Toast.makeText(this,  R.string.ErroFinalizarCompra, Toast.LENGTH_LONG).show()
+            return
+        }
+        Toast.makeText(this,  R.string.FinalCompra, Toast.LENGTH_LONG).show()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("dados", dados)
+        intent.putExtra("posicaoLista", posicao)
+        startActivity(intent)
+        finish()
     }
 
 

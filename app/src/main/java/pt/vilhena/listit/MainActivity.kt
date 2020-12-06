@@ -2,8 +2,10 @@ package pt.vilhena.listit
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import com.google.gson.Gson
 import pt.vilhena.listit.atividades.MenuCriarLista
 import pt.vilhena.listit.atividades.VerListas
 import pt.vilhena.listit.atividades.VerProdutos
@@ -13,10 +15,10 @@ import pt.vilhena.listit.logica.Dados
 class MainActivity : Activity() {
 
     var dados = Dados()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         if(intent.hasExtra("dados"))
         {

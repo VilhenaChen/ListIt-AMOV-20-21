@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light.NoActionBar">
-        <activity android:name=".atividades.OrdenaProdutosCompra"></activity>
+        <activity android:name=".atividades.NotasProdutoCompraPesquisado"></activity>
+        <activity android:name=".atividades.NotasProdutoCompraOrdenado" />
+        <activity android:name=".atividades.EspecificacaoProdutoCompraPesquisado" />
+        <activity android:name=".atividades.EspecificacaoProdutoCompraOrdenado" />
+        <activity android:name=".atividades.NotasProdutoCompra" />
+        <activity android:name=".atividades.EspecificacaoProdutoCompra" />
+        <activity android:name=".atividades.OrdenaProdutosCompra" />
         <activity android:name=".atividades.ProdutoCompraOrdenado" />
         <activity android:name=".atividades.ProdutoCompraPesquisado" />
         <activity android:name=".atividades.PesquisaProdutosCompra" />

@@ -21,11 +21,11 @@ class NovaUnidade : Activity() {
 
     fun onClickBtnAdd(view: View) {
         if(editDesignacao.text.isEmpty()){
-            Toast.makeText(this, "Indique uma Designação", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.DesignacaoFalta, Toast.LENGTH_LONG).show()
             return
         }
         if (editAbreviatura.text.isEmpty()) {
-            Toast.makeText(this, "Indique uma Abreviatura", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.AbreviaturaFalta, Toast.LENGTH_LONG).show()
             return
         }
 
