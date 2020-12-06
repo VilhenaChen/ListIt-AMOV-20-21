@@ -13,11 +13,14 @@ import pt.vilhena.listit.logica.Dados
 
 class OrdenaProdutos : Activity() {
     lateinit var dados : Dados
-    lateinit var modo : String
-    lateinit var ordem : String
+    var modo : Int = 0
+    var ordem : Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ordena_produtos)
+
+        dados = intent.getSerializableExtra("dados") as Dados
 
         val itemsOrdenaTop = arrayOf("Alfabeticamente", "Quantidade" , "Preço")
         val itemsOrdenaBottom = arrayOf("Crescente", "Decrescente")
@@ -38,27 +41,35 @@ class OrdenaProdutos : Activity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val items = spinnerOrdenaTop.selectedItem.toString()
 
+                modo=position;
 
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
         }
 
         spinnerOrdenaBottom.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val items = spinnerOrdenaBottom.selectedItem.toString()
 
+                ordem=position;
 
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
         }
 
     }
 
-    fun OnClickBtnSearch(view: View) {}
+    fun OnClickBtnCheck(view: View) {
+        dados.ordenaProdutos(modo,ordem)
+        val intent = Intent(this, VerProdutosOrdenados::class.java)
+        intent.putExtra("dados", dados)
+        startActivity(intent)
+        finish()
+    }
 
     override fun onBackPressed() {
         super.onBackPressed()
@@ -67,4 +78,5 @@ class OrdenaProdutos : Activity() {
         startActivity(intent)
         finish()
     }
+
 }

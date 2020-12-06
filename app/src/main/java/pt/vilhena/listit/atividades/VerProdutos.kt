@@ -3,21 +3,18 @@ package pt.vilhena.listit.atividades
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import kotlinx.android.synthetic.main.activity_produto_existente.*
 import kotlinx.android.synthetic.main.activity_ver_produtos.*
-import kotlinx.android.synthetic.main.activity_ver_unidades.*
 import kotlinx.android.synthetic.main.entrada_produto.view.*
-import kotlinx.android.synthetic.main.entrada_unidade.view.*
 import pt.vilhena.listit.MainActivity
 import pt.vilhena.listit.R
 import pt.vilhena.listit.logica.Dados
 import pt.vilhena.listit.logica.Produto
-import pt.vilhena.listit.logica.Unidade
 
 class VerProdutos : Activity() {
     lateinit var listaProdutos : ArrayList<Produto>
@@ -33,6 +30,14 @@ class VerProdutos : Activity() {
         adapter = ProdutosAdapter(this,listaProdutos)
 
         grelhaProdutos.adapter = adapter
+
+        grelhaProdutos.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, EspecificacaoProduto::class.java)
+            intent.putExtra("dados", dados)
+            intent.putExtra("posicaoProduto", position)
+            startActivity(intent)
+            finish()
+        }
     }
 
     class ProdutosAdapter : BaseAdapter {
@@ -89,6 +94,5 @@ class VerProdutos : Activity() {
         startActivity(intent)
         finish()
     }
-
 
 }

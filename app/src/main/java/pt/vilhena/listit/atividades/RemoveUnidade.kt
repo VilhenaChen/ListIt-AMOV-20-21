@@ -17,8 +17,6 @@ import pt.vilhena.listit.R
 import pt.vilhena.listit.logica.Dados
 import pt.vilhena.listit.logica.Unidade
 
-var ABS ="OI"
-
 class RemoveUnidade : Activity() {
     lateinit var listaUnidades : ArrayList<Unidade>
     var unidadesARemover = ArrayList<String>()
@@ -40,7 +38,6 @@ class RemoveUnidade : Activity() {
 
             view.setBackgroundColor(rgb(233, 211, 255))
             unidadesARemover.add(listaUnidades[position].designacao.toString())
-            Log.i(ABS,"AQUIadasd")
         }
     }
 

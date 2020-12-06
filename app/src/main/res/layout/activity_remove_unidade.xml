@@ -76,8 +76,6 @@
                     android:scaleY="5"
                     android:onClick="onClickBtnMinus"/>
             </LinearLayout>
-
-
         </LinearLayout>
     </LinearLayout>
 

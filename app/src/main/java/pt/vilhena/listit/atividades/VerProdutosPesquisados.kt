@@ -31,6 +31,14 @@ class VerProdutosPesquisados : Activity() {
         adapter = ProdutosAdapter(this, listaProdutosPesquisados)
 
         grelhaProdutosPesquisados.adapter = adapter
+
+        grelhaProdutosPesquisados.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this, EspecificacaoProdutoPesquisado::class.java)
+            intent.putExtra("dados", dados)
+            intent.putExtra("posicaoProduto", position)
+            startActivity(intent)
+            finish()
+        }
     }
 
     class ProdutosAdapter : BaseAdapter {
@@ -69,6 +77,7 @@ class VerProdutosPesquisados : Activity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        dados.removeProdutosPesquisados()
         val intent = Intent(this, VerProdutos::class.java)
         intent.putExtra("dados", dados)
         startActivity(intent)

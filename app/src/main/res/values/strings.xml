@@ -4,8 +4,8 @@
     <string name="Listas">Listas</string>
     <string name="VerProdutos">Ver Produtos</string>
     <string name="VerUnidades">Ver Unidades</string>
-    <string name="AbreviaturaUnidades">Abreviatura</string>
-    <string name="DesignacaoUnidades">Designação</string>
+    <string name="Abreviatura">Abreviatura</string>
+    <string name="Designacao">Designação</string>
     <string name="Nova">Nova</string>
     <string name="Unidade">Unidade</string>
     <string name="Remove">Remove</string>
@@ -15,5 +15,26 @@
     <string name="Marca">Marca</string>
     <string name="Pesquisados">Pesquisados</string>
     <string name="Ordena">Ordena</string>
+    <string name="Ordenados">Ordenados</string>
+    <string name="CriarLista">Criar Lista</string>
+    <string name="NovaLista">Nova Lista</string>
+    <string name="ListaImportada">Lista Importada</string>
+    <string name="Guardar">Guardar</string>
+    <string name="Lista">Lista</string>
+    <string name="NomeLista">Nome da Lista</string>
+    <string name="Adiconar">Adicionar</string>
+    <string name="NovoProduto">Novo Produto</string>
+    <string name="ProdutoExistente">Produto Existente</string>
+    <string name="Quantidade">Quantidade</string>
+    <string name="Notas">Notas</string>
+    <string name="Escolhao">Escolha o</string>
+    <string name="Preco">Preço</string>
+    <string name="EditaProduto">Edita Produto</string>
+    <string name="Escolhaa">Escolha a</string>
+    <string name="Escolha">Escolha</string>
+    <string name="aLista">a Lista</string>
+    <string name="FinalizarCompra">Finalizar Compra</string>
+    <string name="Ordenada">Ordenada</string>
+
 
 </resources>

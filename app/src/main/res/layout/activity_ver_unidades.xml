@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="@string/DesignacaoUnidades"
+                    android:text="@string/Designacao"
                     android:textSize="24dp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black"
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="@string/AbreviaturaUnidades"
+                    android:text="@string/Abreviatura"
                     android:textSize="24dp"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-black"

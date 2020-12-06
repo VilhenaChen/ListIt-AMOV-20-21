@@ -2,7 +2,11 @@ package pt.vilhena.listit.logica
 
 import java.io.Serializable
 
-class Produto : Serializable {
+class Produto : Serializable, Comparable<Produto> {
+    val ORDENA_POR_DESIGNACAO = 0
+    val ORDENA_POR_QUANTIDADE = 1
+    val ORDENA_POR_PRECO = 2
+
     var designacao : String? = null
         get() = field
         set(value) {
@@ -13,12 +17,12 @@ class Produto : Serializable {
         set(value) {
             field = value
         }
-    var quantidade : Int? = 0
+    var quantidade : Int = 0
         get() = field
         set(value) {
             field = value
         }
-    var quantidadeObtida : Int? = 0
+    var quantidadeObtida : Int = 0
         get() = field
         set(value) {
             field = value
@@ -44,7 +48,19 @@ class Produto : Serializable {
             field = value
         }
 
-    constructor(designacao : String, marca : String, quantidade : Int, unidade : String, categoria : String, notas : String)
+    var preco : Float = 0F
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    var modoOrdenacao = 0
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    constructor(designacao : String, marca : String, quantidade : Int, unidade : String, categoria : String, notas : String, preco : Float)
     {
         this.designacao = designacao
         this.marca = marca
@@ -53,5 +69,24 @@ class Produto : Serializable {
         this.categoria = categoria
         this.notas = notas
         this.estado = "Em aberto"
+        this.preco = preco
+    }
+
+    override fun compareTo(other: Produto): Int {
+        if(modoOrdenacao == ORDENA_POR_DESIGNACAO)
+        {
+            return this.designacao?.compareTo(other.designacao.toString())!!
+        }
+        else
+        {
+            if(modoOrdenacao == ORDENA_POR_QUANTIDADE)
+            {
+                return this.quantidade.compareTo(other.quantidade)
+            }
+            else
+            {
+                return this.preco.compareTo(other.preco)
+            }
+        }
     }
 }

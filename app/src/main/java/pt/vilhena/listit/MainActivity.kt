@@ -3,13 +3,12 @@ package pt.vilhena.listit
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.core.os.bundleOf
+import pt.vilhena.listit.atividades.MenuCriarLista
+import pt.vilhena.listit.atividades.VerListas
 import pt.vilhena.listit.atividades.VerProdutos
 import pt.vilhena.listit.atividades.VerUnidades
 import pt.vilhena.listit.logica.Dados
-import pt.vilhena.listit.logica.Unidade
 
 class MainActivity : Activity() {
 
@@ -32,8 +31,8 @@ class MainActivity : Activity() {
             else{
                 dados.addUnidade("Unidade", "uni")
                 dados.addUnidade("Kilogramas", "Kg")
-                dados.addProduto("Pão","Branca",10,"uni","","apenas se não estiver rijo")
-                dados.addProduto("Arroz","Cigala",3,"Kg","Cereiais","Apenas do Carolino")
+                dados.addProduto("Pão","Branca",10,"uni","","apenas se não estiver rijo",0F)
+                dados.addProduto("Arroz","Cigala",3,"Kg","Cereiais","Apenas do Carolino",0F)
             }
         }
     }
@@ -43,10 +42,16 @@ class MainActivity : Activity() {
     }
 
     fun onBtnCriarLista(view: View) {
-        //Ir para Menu Criar Lista
+        val intent = Intent(this, MenuCriarLista::class.java)
+        intent.putExtra("dados", dados)
+        startActivity(intent)
+        finish()
     }
     fun onBtnListas(view: View) {
-        //Ir para Historico Listas
+        val intent = Intent(this, VerListas::class.java)
+        intent.putExtra("dados", dados)
+        startActivity(intent)
+        finish()
     }
     fun onBtnVerProdutos(view: View) {
         val intent = Intent(this, VerProdutos::class.java)
